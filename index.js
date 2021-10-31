@@ -83,10 +83,8 @@ app.post(`/api/insert`, (req,res)=>{
 
 // posting for employee data
 app.post(`/api/insert2`, (req,res)=>{
-    const NAME = req.body.NAME 
-    const EMAIL = req.body.EMAIL
-    const CNIC = req.body.CNIC
-    const MESSAGE = req.body.MESSAGE 
+
+    const {NAME ,EMAIL,CNIC,MESSAGE}=req.body
 
     const sqlInsert = "INSERT INTO employee (`name`, `email`, `CNIC`, `message`) VALUES (?,?,?,?);"
     db.query(sqlInsert,[NAME, EMAIL, CNIC, MESSAGE],(err, result)=>{
